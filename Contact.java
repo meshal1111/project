@@ -1,7 +1,7 @@
 
-public class Contact {
+public class Contact implements Comparable<Contact>  {
 //Attibute
- private String Name;
+ private String name;
  private String phonenumber;
  private String email;
  private String address;
@@ -10,13 +10,71 @@ public class Contact {
  
  //Constructor
  public Contact(String na,String p,String e,String a,String b,String no) {
-	 Name=na;
+	 name=na;
 	 phonenumber=p;
 	 email=e;
 	 address=a;
 	 birthday=b;
 	 notes=no;
 	}
+//setters and getters
+public String getName() {
+	return name;
+}
+
+public void setName(String n) {
+	name = n;
+}
+
+public String getPhonenumber() {
+	return phonenumber;
+}
+
+public void setPhonenumber(String phonenumber) {
+	this.phonenumber = phonenumber;
+}
+
+public String getEmail() {
+	return email;
+}
+
+public void setEmail(String email) {
+	this.email = email;
+}
+
+public String getAddress() {
+	return address;
+}
+
+public void setAddress(String address) {
+	this.address = address;
+}
+
+public String getBirthday() {
+	return birthday;
+}
+
+public void setBirthday(String birthday) {
+	this.birthday = birthday;
+}
+
+public String getNotes() {
+	return notes;
+}
+
+public void setNotes(String notes) {
+	this.notes = notes;
+}
+//sort by name
+@Override
+public int compareTo(Contact o) {
+	  if(this.name.compareToIgnoreCase(o.name)<0)
+		  return 1;
+	  else return -1;
+	   
+		
+	
+}
  
  
 }
