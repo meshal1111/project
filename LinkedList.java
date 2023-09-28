@@ -45,6 +45,31 @@ head=current=null;
 		current.next=tmp;
 	}//big O(1)
 	}
+	public boolean search(LinkedList <T> l,T val) {
+	while(!l.last()) {
+		if(l.retrieve().equals(val))
+			return true;
+		l.findnext();
+	}
+	if(l.retrieve().equals(val))
+		return true;
+	
+	return false;
+}
+public void remove() {	
+	if(head==current)
+		head=head.next;
+	else {
+		Node <T> tmp=head;
+	while(tmp.next!=current) 
+		tmp=tmp.next;
+	
+	tmp.next=current.next;
+	if(current.next==null)
+		current=head;
+	else
+		current=current.next;
+}
 
 
 
