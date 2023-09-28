@@ -1,7 +1,8 @@
 
+import java.util.Collections;
 public class LinkedList<T> {
-public Node<T> head;
-public Node<T> current;
+public Node<Contact> head;
+public Node<Contact> current;
 public LinkedList() {
 head=current=null;	
 }
@@ -26,26 +27,38 @@ head=current=null;
 	current = current.next;//big O(1)
 	}
 
-	public T retrieve () {
+	public Contact retrieve () {
 	return current.data;//big O(1)
 	}
 
-	public void update (T val) {
+	public void update (Contact val) {
 	current.data = val;//big O(1)
 	}
 
-	public void insert(T val) {
+	public void insert(Contact val) {
+		search(LinkedList <T>,val);
 	if(empty()) {
-		head=current=new Node <T>(val);
+		head=current=new Node<Contact>(val);
 	}
 	else {
 		Node tmp=current.next;
-		current.next=new Node<T>(val);
+		current.next=new Node<Contact>(val);
 		current=current.next;
 		current.next=tmp;
 	}//big O(1)
 	}
-	public boolean search(LinkedList <T> l,T val) {
+public boolean search(LinkedList <T> l,T val) {
+	while(!l.last()) {
+		if(l.retrieve().equals(val))
+			return true;
+		l.findnext();
+	}
+	if(l.retrieve().equals(val))
+		return true;
+	
+	return false;
+}
+public boolean advancedSearch(LinkedList <T> l,T val) {
 	while(!l.last()) {
 		if(l.retrieve().equals(val))
 			return true;
@@ -60,7 +73,7 @@ public void remove() {
 	if(head==current)
 		head=head.next;
 	else {
-		Node <T> tmp=head;
+		Node <Contact> tmp=head;
 	while(tmp.next!=current) 
 		tmp=tmp.next;
 	
@@ -70,12 +83,5 @@ public void remove() {
 	else
 		current=current.next;
 }
-
-
-
-
-
-
-
-
 }
+
