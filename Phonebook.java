@@ -25,8 +25,8 @@ public class Phonebook {
 		}
 		LinkedList<Contact> li = new LinkedList<Contact>();
 		li.add(li,"asd", "a1", "a1", "a33", "a5", "a4");
-		li.add(li,"ssd", "a10", "a30", "a40", "a10", "a30");
-		li.add(li,"ss", "a1", "a1", "a33", "a22", "a77");
+		li.add(li,"bsd", "a10", "a1", "a40", "a10", "a30");
+		li.add(li,"gsad", "a10", "a1", "a40", "a10", "a30");
 	    li.searchemail(li,"a1");
 	    System.out.println("============");
 	    li.searchBirthday(li, "a22");

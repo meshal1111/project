@@ -44,19 +44,26 @@ public class LinkedList<T> {
 			current=current.next;
 			current.next=tmp;
 		}	}//big O(1)*/
-		public  void  add(LinkedList <T> l,String na,String p,String e,String a,String b,String no) {
-			Contact x =new Contact(na,p,e,a,b,no);
-			if(empty()) {
+		public  void  add(LinkedList <T> l,String name,String phone,String email,String address,String birth,String note) {
+			Contact x =new Contact(name,phone,email,address,birth,note);
+			if(empty()) { //frist add
 				head=current=new Node<T>(x);
 			}
 			else {
-				
+				current=head;
+				if(x.compareTo(head.data)<0) { //the name is frist alphabetically
+					Node tmp=head;
+                    head=new Node <T>(x);
+				    head.next=tmp;
+				    }else {
+				while(current.next!=null&&x.compareTo(current.next.data)>0) 
+					current=current.next; //the name goes to its alphabetical place
 				Node tmp=current.next;
 				current.next=new Node <T>(x);
 				current=current.next;
 				current.next=tmp;
 				
-				}//big O(1)
+				    }}//big O(n)
 		}
 		public boolean searchnameB(LinkedList <T> l,String val) {
 			l.findfirst();
