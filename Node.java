@@ -1,7 +1,7 @@
 
 public class Node<T> {
-	public Contact data;
-	public Node<T> next;
+	protected Contact data;
+	protected Node<T> next;
 
 	public Node() {
 		data = null;

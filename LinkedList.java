@@ -1,7 +1,7 @@
 
-public class LinkedList<T> {
-	public Node<T> head;
-	public Node<T> current;
+public class LinkedList<T> extends Node<T>{
+	private Node<T> head;
+	private Node<T> current;
 	public LinkedList() {
 	head=current=null;	
 	}
