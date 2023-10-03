@@ -6,7 +6,7 @@ public class Phonebook {
 		Scanner input=new Scanner(System.in);
 		int x=0;
 	
-		while(x!=8) {
+		/*while(x!=8) {
 			//interface
 		 System.out.println("Welcome to the Linked Tree Phonebook!\r\n"
 		 		+ "Please choose an option:\r\n"
@@ -22,21 +22,27 @@ public class Phonebook {
 		 
 		  x=Integer.parseInt(input.nextLine());
 		 
-		}
+		}*/
 		LinkedList<Contact> li = new LinkedList<Contact>();
-		li.add(li,"asd", "a1", "a1", "a33", "a5", "a4");
-		li.add(li,"bsd", "a10", "a1", "a40", "a10", "a30");
+		li.add(li,"bsd", "a1", "a1", "a33", "a5", "a4");
+		li.add(li,"asd", "a10", "a1", "a40", "a10", "a30");
 		li.add(li,"gsad", "a10", "a1", "a40", "a10", "a30");
+		/*
 	    li.searchemail(li,"a1");
 	    System.out.println("============");
 	    li.searchBirthday(li, "a22");
 	    System.out.println("============");
 	    li.searchAddress(li, "a33");
-		//System.out.println(li.searchname(li, "ssq"));
-		//System.out.print(li.retrieve().getName());
-	}//public static <T>  add(LinkedList<T> l){
-		//System.out.print("Enter the contact's name:");
-		//nam=input.nextLine();}
+		System.out.println(li.searchname(li, "ssq"));
+		System.out.print(li.retrieve().getName());*/
+		DoubleLinkedList<Event> dli = new DoubleLinkedList<Event>();
+		dli.Scheduleevent("art", "08/24/2023 12:30", "home", li.searchname(li,"bsd"));
+		dli.Scheduleevent("rt", "08/24/2023 12:30", "home", li.searchname(li,"asd"));
+		dli.Scheduleevent("rt", "08/24/2023 12:30", "home", li.searchname(li,"gsad"));
+		System.out.println(dli.isconflict(li.searchname(li,"bsd"),"08/24/2023 12:30"));
+		//dli.printAllEvents();
+		dli.printcontactshareevent("art");
+	}
 	
 
 }
