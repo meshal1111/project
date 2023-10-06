@@ -1,14 +1,12 @@
 
 public class Event implements Comparable<Event> {
 	private  String title;
-	private  String date;
-	private  String time;
+	private  String dateandtime;
 	private  String location;
 	private  Contact contact;
-	public Event( String title, String date,String time, String location, Contact contact) {	
+	public Event( String title, String dateandtime, String location, Contact contact) {	
 		this.title = title;
-		this.date = date;
-		this.time = time;
+		this.dateandtime = dateandtime;
 		this.location = location;
 		this.contact = contact;
 	}
@@ -18,23 +16,24 @@ public class Event implements Comparable<Event> {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getDate() {
-		return date;
+	public String getDateandtime() {
+		return dateandtime;
 	}
-	public void setDate(String date) {
-		this.date = date;
-	}
-	public String getTime() {
-		return time;
-	}
-	public void setTime(String time) {
-		this.time = time;
+	public void setDateandtime(String dateandtime) {
+		this.dateandtime = dateandtime;
 	}
 	public String getLocation() {
 		return location;
 	}
 	public void setLocation(String location) {
 		this.location = location;
+	}
+	
+	public Contact getContact() {
+		return contact;
+	}
+	public void setContact(Contact contact) {
+		this.contact = contact;
 	}
 	//sort by name
 	@Override
