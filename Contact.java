@@ -1,3 +1,5 @@
+package project;
+
 
 public class Contact implements Comparable<Contact>  {
 //Attibute
@@ -67,10 +69,13 @@ public void setNotes(String notes) {
 }
 //sort by name
 @Override
-public int compareTo(Contact otherContact) {
-	  
-		  return this.name.compareToIgnoreCase(otherContact.name);
-	  
+public int compareTo(Contact o) {
+	  if(this.name.compareToIgnoreCase(o.name)<0)
+		  return 1;
+	  else return -1;
+	   
+		
+	
 }
  
  

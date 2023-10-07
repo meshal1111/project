@@ -1,3 +1,5 @@
+package project;
+
 
 public class DoubleLinkedList<T> extends Nodes<T>{
 	private Nodes<T> head;
@@ -72,7 +74,6 @@ public class DoubleLinkedList<T> extends Nodes<T>{
     }//big O(n)
     public void removeEvent(DoubleLinkedList<T> l,String name) {
         if (l.empty()) {
-            System.out.println("The linked event list is empty.");
             return;
         }
 
@@ -114,7 +115,10 @@ public class DoubleLinkedList<T> extends Nodes<T>{
        }
    }
     public void printalphabetically() {
-         current = head;
+    	if (this.empty()) {
+            System.out.println("The linked list is empty.");
+            return;}
+    	current = head;
         
         while (current != null) {
             if(current==head) 
@@ -184,5 +188,4 @@ public class DoubleLinkedList<T> extends Nodes<T>{
 	
 	
 	}
-
 

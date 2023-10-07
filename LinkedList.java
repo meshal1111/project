@@ -1,3 +1,6 @@
+package project;
+
+
 
 public class LinkedList<T> extends Node<T>{
 	private Node<T> head;
@@ -113,6 +116,8 @@ public class LinkedList<T> extends Node<T>{
 			return false;
 		}
 		public Contact searchname(LinkedList <T> l,String val) { //if he find the name return the object
+			if (l.empty()) 
+	            return null;
 			l.findfirst();
 			while(!l.last()) {
 				if(l.retrieve().getName().equals(val)) //if he find the name
@@ -126,6 +131,8 @@ public class LinkedList<T> extends Node<T>{
 			
 		}
 		public Contact searchphone(LinkedList <T> l,String val) { //if he find the phone return the object
+			if (l.empty()) 
+	            return null;
 			l.findfirst();
 			while(!l.last()) {
 				if(l.retrieve().getPhonenumber().equals(val)) //if he find the phone
@@ -203,4 +210,7 @@ public class LinkedList<T> extends Node<T>{
 		    	System.out.println("there is no contact with this frist name");
 		}
 }
+		
+
+
 
