@@ -2,6 +2,7 @@
 public class LinkedList<T> extends Node<T>{
 	private Node<T> head;
 	private Node<T> current;
+	
 	public LinkedList() {
 	head=current=null;	
 	}
@@ -33,17 +34,8 @@ public class LinkedList<T> extends Node<T>{
 		public void update (Contact val) {
 		current.data = val;//big O(1)
 		}
-/*
-		public void insert(T val) {
-		if(empty()) {
-			head=current=new Node <T>(val);
-		}
-		else {
-			Node tmp=current.next;
-			current.next=new Node<T>(val);
-			current=current.next;
-			current.next=tmp;
-		}	}//big O(1)*/
+
+		
 		public  void  add(LinkedList <T> l,String name,String phone,String email,String address,String birth,String note) {
 			Contact x =new Contact(name,phone,email,address,birth,note);
 			if(empty()) { //frist add
@@ -65,61 +57,92 @@ public class LinkedList<T> extends Node<T>{
 				
 				    }}//big O(n)
 		}
-		public boolean searchnameB(LinkedList <T> l,String val) {
+		public void remove(LinkedList<T> l, String name,DoubleLinkedList<Event> s) {
+            if (this.empty()) {
+                System.out.println("The linked list is empty.");
+                return;
+            }
+
+            // Case 1: Remove the head node
+            if (head.data.getName().equals(name)) {
+                head = head.next;
+                System.out.println("the name "+name+" is removed!");
+                s.removeEvent(s, name);
+                return;
+            }
+
+            // Case 2: Remove a node other than the head
+            Node<T> prev = head;
+            Node<T> curr = head.next;
+
+            while (curr != null) {
+                if (curr.data.getName().equals(name)) {
+                    prev.next = curr.next;
+                    System.out.println("the name "+name+" is removed!");
+                   s.removeEvent(s, name);
+                    return;
+                }
+                prev = curr;
+                curr = curr.next;
+            }
+
+            System.out.println("The name is not found in the linked list.");
+        }
+		public boolean searchnameBoolean(LinkedList <T> l,String val) { //if he find the name return true
 			l.findfirst();
 			while(!l.last()) {
-				if(l.retrieve().getName().equals(val))
+				if(l.retrieve().getName().equals(val)) //if he find the name
 					return true;
 				l.findnext();
 			}
-			if(l.retrieve().getName().equals(val))
+			if(l.retrieve().getName().equals(val)) //if the name in the last
 				return true;
 			
 			return false;
 		}
-		public boolean searchphoneB(LinkedList <T> l,String val) {
+		public boolean searchphoneBoolean(LinkedList <T> l,String val) { //if he find the phone return true
 			l.findfirst();
 			while(!l.last()) {
-				if(l.retrieve().getPhonenumber().equals(val))
+				if(l.retrieve().getPhonenumber().equals(val)) //if he find the phone
 					return true;
 				l.findnext();
 			}
-			if(l.retrieve().getPhonenumber().equals(val))
+			if(l.retrieve().getPhonenumber().equals(val)) //if the phone in the last
 				return true;
 			
 			return false;
 		}
-		public Contact searchname(LinkedList <T> l,String val) {
+		public Contact searchname(LinkedList <T> l,String val) { //if he find the name return the object
 			l.findfirst();
 			while(!l.last()) {
-				if(l.retrieve().getName().equals(val))
+				if(l.retrieve().getName().equals(val)) //if he find the name
 					return l.retrieve();
 				l.findnext();
 			}
-			if(l.retrieve().getName().equals(val))
+			if(l.retrieve().getName().equals(val)) //if the name in the last
 				return l.retrieve();
 			
 			else return null;
 			
 		}
-		public Contact searchphone(LinkedList <T> l,String val) {
+		public Contact searchphone(LinkedList <T> l,String val) { //if he find the phone return the object
 			l.findfirst();
 			while(!l.last()) {
-				if(l.retrieve().getPhonenumber().equals(val))
+				if(l.retrieve().getPhonenumber().equals(val)) //if he find the phone
 					return l.retrieve();
 				l.findnext();
 			}
-			if(l.retrieve().getPhonenumber().equals(val))
+			if(l.retrieve().getPhonenumber().equals(val)) //if the phone in the last
 				return l.retrieve();
 			
 			else return null;
 		}
 		
-		public void searchemail(LinkedList <T> l,String val) {
+		public void searchemail(LinkedList <T> l,String val) { //print all contact with this email
 			l.findfirst();
-			Boolean temp=false;
+			Boolean temp=false; //check if he find one email at least
 			while(l.current!=null) {
-				if(l.retrieve().getEmail().equals(val)) {
+				if(l.retrieve().getEmail().equals(val)) { //if he find the email
 					temp=true;
 					System.out.println("Contact found!\r\n"
 							+ "Name:"+l.retrieve().getName()+" \r\n"
@@ -134,11 +157,11 @@ public class LinkedList<T> extends Node<T>{
 			System.out.println("ther is no one with this emil");}
 		
 		
-		public void searchAddress(LinkedList <T> l,String val) {
+		public void searchAddress(LinkedList <T> l,String val) { //print all contact with this address
 			l.findfirst();
-			Boolean temp=false;
+			Boolean temp=false; //check if he find one address at least
 			while(l.current!=null) {
-				if(l.retrieve().getAddress().equals(val)) {
+				if(l.retrieve().getAddress().equals(val)) { //if he find the address
 					temp=true;
 					System.out.println("Contact found!\r\n"
 							+ "Name:"+l.retrieve().getName()+" \r\n"
@@ -151,11 +174,11 @@ public class LinkedList<T> extends Node<T>{
 			}if(!temp)
 			 System.out.println("ther is no one with this address");}
 		
-		public void searchBirthday(LinkedList <T> l,String val) {
+		public void searchBirthday(LinkedList <T> l,String val) { //print all contact with this birthday
 			l.findfirst();
-			Boolean temp=false;
+			Boolean temp=false; //check if he find one birthday at least
 			while(l.current!=null) {
-				if(l.retrieve().getBirthday().equals(val)) {
+				if(l.retrieve().getBirthday().equals(val)) { //if he find the birthday
 					temp=true;
 					System.out.println("Contact found!\r\n"
 							+ "Name:"+l.retrieve().getName()+" \r\n"
@@ -167,5 +190,17 @@ public class LinkedList<T> extends Node<T>{
 				l.findnext();
 			}if(!temp)
 			System.out.println("ther is no one with this birthday");}
+		public void findByFirstName(String name) {
+			current=head;
+			boolean x=true; //check if frist name exist
+		    while(current!=null) {
+		        String words[]=current.data.getName().split(" "); //split name
+		        if(words[0].equalsIgnoreCase(name)) {
+		        	x=false;
+		      System.out.println("contacts found\nName: "+current.data.getName()+"\nPhone Number: "+current.data.getPhonenumber()+"\nEmail Address: "+current.data.getAddress()+"\nBirthday: "+current.data.getBirthday());
+		        }current=current.next;
+		    }if(x)
+		    	System.out.println("there is no contact with this frist name");
+		}
 }
 

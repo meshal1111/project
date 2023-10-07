@@ -25,8 +25,10 @@ public class Phonebook {
 		}*/
 		LinkedList<Contact> li = new LinkedList<Contact>();
 		li.add(li,"bsd", "a1", "a1", "a33", "a5", "a4");
-		li.add(li,"asd", "a10", "a1", "a40", "a10", "a30");
-		li.add(li,"gsad", "a10", "a1", "a40", "a10", "a30");
+		li.add(li,"a sd", "a10", "a1", "a40", "a10", "a30");
+		li.add(li,"a gsad", "a10", "a1", "a40", "a10", "a30");
+		li.add(li,"d", "a10", "a1", "a40", "a10", "a30");
+		
 		/*
 	    li.searchemail(li,"a1");
 	    System.out.println("============");
@@ -36,12 +38,20 @@ public class Phonebook {
 		System.out.println(li.searchname(li, "ssq"));
 		System.out.print(li.retrieve().getName());*/
 		DoubleLinkedList<Event> dli = new DoubleLinkedList<Event>();
-		dli.Scheduleevent("art", "08/24/2023 12:30", "home", li.searchname(li,"bsd"));
-		dli.Scheduleevent("rt", "08/24/2023 12:30", "home", li.searchname(li,"asd"));
+		/*dli.Scheduleevent("art", "08/24/2023 12:30", "home", li.searchname(li,"bsd"));
+		
+		dli.Scheduleevent("art", "08/24/2023 12:30", "home", li.searchname(li,"asd"));
 		dli.Scheduleevent("rt", "08/24/2023 12:30", "home", li.searchname(li,"gsad"));
-		System.out.println(dli.isconflict(li.searchname(li,"bsd"),"08/24/2023 12:30"));
-		//dli.printAllEvents();
-		dli.printcontactshareevent("art");
+		
+		dli.printalphabetically();
+		dli.printAllEvents();
+		dli.printcontactshareevent("t");
+		System.out.println("===================================");
+		//li.remove(li, "gsad", dli);
+		//dli.printalphabetically();
+		dli.searchEventByEventName("art",dli);*/
+		System.out.println("===================================");
+		li.findByFirstName("a");
 	}
 	
 
