@@ -118,8 +118,8 @@ public class DoubleLinkedList<T> extends Nodes<T>{
 		while (current != null) {
 			if (current == head) {
 				System.out.println("Title: " + current.data.getTitle());
-			}else if (current.data.getTitle().equalsIgnoreCase(current.previous.data.getTitle()))  // if title repeted
-				return;
+			}else if (current.data.getTitle().equalsIgnoreCase(current.previous.data.getTitle()));  // if title repeted
+				
 			else
 				System.out.println("Title: " + current.data.getTitle());
 
