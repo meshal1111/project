@@ -1,6 +1,3 @@
-package project;
-
-
 
 public class LinkedList<T> extends Node<T>{
 	private Node<T> head;
@@ -61,13 +58,14 @@ public class LinkedList<T> extends Node<T>{
 				    }}//big O(n)
 		}
 		public void remove(LinkedList<T> l, String name,DoubleLinkedList<Event> s) {
+			
             if (this.empty()) {
                 System.out.println("The linked list is empty.");
                 return;
             }
-
+            current=head;
             // Case 1: Remove the head node
-            if (head.data.getName().equals(name)) {
+            if (head.data.getName().equalsIgnoreCase(name)) {
                 head = head.next;
                 System.out.println("the name "+name+" is removed!");
                 s.removeEvent(s, name);
@@ -79,7 +77,7 @@ public class LinkedList<T> extends Node<T>{
             Node<T> curr = head.next;
 
             while (curr != null) {
-                if (curr.data.getName().equals(name)) {
+                if (curr.data.getName().equalsIgnoreCase(name)) {
                     prev.next = curr.next;
                     System.out.println("the name "+name+" is removed!");
                    s.removeEvent(s, name);
@@ -93,6 +91,8 @@ public class LinkedList<T> extends Node<T>{
         }
 		public boolean searchnameBoolean(LinkedList <T> l,String val) { //if he find the name return true
 			l.findfirst();
+			if(l.empty())
+				return false;
 			while(!l.last()) {
 				if(l.retrieve().getName().equals(val)) //if he find the name
 					return true;
@@ -105,6 +105,8 @@ public class LinkedList<T> extends Node<T>{
 		}
 		public boolean searchphoneBoolean(LinkedList <T> l,String val) { //if he find the phone return true
 			l.findfirst();
+			if(l.empty())
+				return false;
 			while(!l.last()) {
 				if(l.retrieve().getPhonenumber().equals(val)) //if he find the phone
 					return true;
@@ -210,7 +212,4 @@ public class LinkedList<T> extends Node<T>{
 		    	System.out.println("there is no contact with this frist name");
 		}
 }
-		
-
-
 

@@ -1,7 +1,5 @@
-package project;
-
-import java.util.Collections;
 import java.util.Scanner;
+
 public class Phonebook {
 
 	public static void main(String[] args) {
@@ -31,11 +29,15 @@ public class Phonebook {
 		 		+ "5. Print event details\r\n"
 		 		+ "6. Print contacts by first name\r\n"
 		 		+ "7. Print all events alphabetically\r\n"
-		 		+ "8.print contacts that share event\r"
+		 		+ "8. print contacts that share event\r"
 		 		+ "9. Exit");
 		 //casting
-		    
-		  x=Integer.parseInt(input.nextLine());
+		   try { 
+		  x=Integer.parseInt(input.nextLine());}
+		  catch(Exception e) {
+			  System.out.println("enter number");
+			  x=Integer.parseInt(input.nextLine());
+		  }
 		  String n;
 		  String p;
 		  String e;
@@ -61,9 +63,13 @@ public class Phonebook {
 			 b = birthday.nextLine();
 			System.out.println("enter the note if you want:");
 			 N= note.nextLine();
-			System.out.println("  the name: "+n+"\r  the phonenumber: "+p+"\r  the email: "+e+"\r  the address: "+a+"\r  the birthday: "+b+"\r  the note: "+N+"\r  all has been succefully added!");
-			System.out.println("\r\r\r\r\r");  
+			System.out.println("  the name: "+n+"\r  the phonenumber: "+p+"\r  the email: "+e+"\r  the address: "+a+"\r  the birthday: "+b+"\r  the note: "+N+"\r ");
+			System.out.println("\r"); 
+			if(li.searchnameBoolean(li, n)||li.searchphoneBoolean(li, p)) {
+				System.out.println("this name/phone already added");
+				break;}
 			li.add(li, n, p, e, a, b, N);
+			System.out.println("all has been succefully added!");
 			break;
 		  case 2:
 			  System.out.println("Enter search criteria:\r\n"
@@ -115,9 +121,9 @@ public class Phonebook {
 			   li.searchBirthday(li, t);
 			   System.out.println("\r");
 			  break;
-			  default:}
-				  System.out.println("wrong number choice");
-			  break;
+			  default:
+				  break;  
+			  }
 			  
 		  case(3):
 			  System.out.println("what name do you want to remove?");
@@ -138,6 +144,9 @@ public class Phonebook {
 		   dt = dateandtime.nextLine();
 		   System.out.println("enter the location:");
 		   l = location.nextLine();
+		   if(dli.isconflict(contact, dt)) {
+			   System.out.println("there is a conflict with other event");
+			   break;}
 		   dli.Scheduleevent(T,dt,l,li.searchname(li, t));}
 		   System.out.println("the event has been succefully scheduled!");
 			 break;
@@ -163,16 +172,11 @@ public class Phonebook {
 		  else
 		  System.out.println("wrong number");
 		  case(6):
-			  System.out.println("enter the contact: ");
-		  t = test.nextLine();
-		  Contact contact2 =li.searchname(li, t);
-		   if(contact2==null) {
-			   System.out.println("we are sorry there is no name in the list\r");
-			   break;}
-		   else {
-			   li.findByFirstName(t);
+		   System.out.println("enter the contact frist name: ");
+		   t = test.nextLine();
+		   li.findByFirstName(t);
 		   System.out.println("\r");
-		   break;}
+		   break;
 		  case(7):
 			 dli.printalphabetically();
 		  break;
@@ -191,13 +195,8 @@ public class Phonebook {
 		
 		  }  
 		  }
-		  }
 		
-		
-	
-		
-
 	}
 	
 
-	
+}

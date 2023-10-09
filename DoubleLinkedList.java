@@ -1,5 +1,3 @@
-package project;
-
 
 public class DoubleLinkedList<T> extends Nodes<T>{
 	private Nodes<T> head;
@@ -76,7 +74,7 @@ public class DoubleLinkedList<T> extends Nodes<T>{
         if (l.empty()) {
             return;
         }
-
+        current=head;
         // Remove the head node
         if (head.data.getContact().getName().equalsIgnoreCase(name)) { 
             head = head.next;
@@ -102,18 +100,7 @@ public class DoubleLinkedList<T> extends Nodes<T>{
 
         
     }
-    public void printAllEvents() {//for test only
-        current = head;
-       while (current != null) {
-           Event event =  current.data;
-           System.out.println("Title: " + event.getTitle());
-           System.out.println("Date and Time: " + event.getDateandtime());
-           System.out.println("Location: " + event.getLocation());
-           System.out.println("Contact: " + event.getContact().getName());
-           System.out.println("------------------------");
-           current = current.next;
-       }
-   }
+ 
     public void printalphabetically() {
     	if (this.empty()) {
             System.out.println("The linked list is empty.");
@@ -131,7 +118,7 @@ public class DoubleLinkedList<T> extends Nodes<T>{
     }
     public void printcontactshareevent(String title) {//for test only
         current = head;
-        boolean x=false; //check if event exist or not
+        boolean x=false; //check if event existing or not
         boolean y=false; // printing in a different way for the frist time
        while (current != null) {
     	   if(current.data.getTitle().equalsIgnoreCase(title)) { //if he find the name
@@ -177,15 +164,13 @@ public class DoubleLinkedList<T> extends Nodes<T>{
             System.out.println("Title: " + event.getTitle());
             System.out.println("Date and Time: " + event.getDateandtime());
             System.out.println("Location: " + event.getLocation());
-            l.printcontactshareevent(name);
+            System.out.println("Contact: " + event.getContact().getName());
             System.out.println("------------------------");
             break;
             }current=current.next;}
     if(x)
     	System.out.println("there is no event with this title");
 }
-	
-	
-	
 	}
+
 
