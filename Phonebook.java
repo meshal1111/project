@@ -25,14 +25,17 @@ public class Phonebook {
 					+ "4. Schedule an event\r\n" + "5. Print event details\r\n" + "6. Print contacts by first name\r\n"
 					+ "7. Print all events alphabetically\r\n" + "8. print contacts that share event\r" + "9. Exit");
               // casting
+			boolean validInput = false;
+			 while (!validInput) {
 			try {
 				x = Integer.parseInt(input.nextLine());
+				validInput = true; // Exit the loop if input is valid
 			} catch (Exception e) {
-				System.out.println("enter number");
-				x = Integer.parseInt(input.nextLine());
-			}
+				System.out.println("Invalid input enter number");
+				
+			}}
 			String n, p, e, a, b, N, t, T, dt, l, sn, sp, se, sa, sb, re, en;
-			int q, ei;
+			int q=0, ei=0;
 			switch (x) {
 			case 1:
 				System.out.println("enter the name:");
@@ -60,8 +63,15 @@ public class Phonebook {
 			case 2:
 				System.out.println("Enter search criteria:\r\n" + "1. Name\r\n" + "2. Phone Number\r\n"
 						+ "3. Email Address\r\n" + "4. Address\r\n" + "5. Birthday");
-				q = choose.nextInt();
-
+				boolean validInput2 = false;
+				 while (!validInput2) {
+				try {
+				q = Integer.parseInt(input.nextLine());
+				validInput2 = true; // Exit the loop if input is valid
+				} catch (Exception s) {
+					System.out.println("Invalid input enter number");
+					
+				}}
 				switch (q) {
 				case 1:
 					System.out.println("enter the name you want to search: ");
@@ -144,7 +154,15 @@ public class Phonebook {
 				break;
 			case (5):
 				System.out.println("enter search critiria\r1.contact name\r2.event title");
-				ei = choose.nextInt();
+			boolean validInput5 = false;
+			 while (!validInput5) {
+			try {
+				ei = Integer.parseInt(input.nextLine());
+				validInput5 = true; // Exit the loop if input is valid
+			} catch (Exception m) {
+				System.out.println("Invalid input enter number");
+				
+			}}
 				if (ei == 1) {
 					System.out.println("enter the contact: ");
 					t = test.nextLine();

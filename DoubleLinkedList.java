@@ -127,7 +127,7 @@ public class DoubleLinkedList<T> extends Nodes<T>{
 		}
 	}
 
-	public void printcontactshareevent(String title) {// for test only
+	public void printcontactshareevent(String title) {
 		current = head;
 		boolean x = false; // check if event existing or not
 		boolean y = false; // printing in a different way for the frist time
