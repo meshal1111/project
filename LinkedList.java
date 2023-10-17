@@ -73,21 +73,30 @@ public class LinkedList<T> extends Node<T>{
 			s.removeEvent(s, name);
 			return;
 		}
+		if(current.next==null)
+			current=head
+		else
+			current=current.next
 
 		// Case 2: Remove a node other than the head
 		Node<T> prev = head;
 		Node<T> curr = head.next;
-
+                
 		while (curr != null) {
 			if (curr.data.getName().equalsIgnoreCase(name)) {
 				prev.next = curr.next;
 				System.out.println("the name " + name + " is removed!");
+				if(current.next==null)
+			              current=head
+		                else
+			           current=current.next
 				s.removeEvent(s, name);
 				return;
 			}
 			prev = curr;
 			curr = curr.next;
 		}
+		
 
 		System.out.println("The name is not found in the linked list.");
 	}
