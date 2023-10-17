@@ -86,7 +86,8 @@ public class DoubleLinkedList<T> extends Nodes<T>{
 		// Remove the head node
 		if (head.data.getContact().getName().equalsIgnoreCase(name)) {
 			head = head.next;
-			head.previous = null;
+			if(head != null)
+                            head.previous = null;
 			return;
 		}
 
@@ -99,6 +100,10 @@ public class DoubleLinkedList<T> extends Nodes<T>{
 				prev.next = current.next;
 				if (current.next != null)
 					current.next.previous = prev;
+				if(current.next == null)
+					current = head;
+				else
+				    current = current.next
 
 				return;
 			}
